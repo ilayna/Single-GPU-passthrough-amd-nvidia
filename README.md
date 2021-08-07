@@ -23,7 +23,7 @@ Step 3:
        ``
        it should spit out something similar to this:
        ![lspci -nnk](https://user-images.githubusercontent.com/58913586/128605396-fce323da-14b1-44c0-a5f9-ffa01cb7573b.png)
-       you need to look for your gpu and audio pci number and change it accordingly in the kvm.conf file, for this all you have to do is write:
+                   you need to look for your gpu and audio pci number and change it accordingly in the kvm.conf file, for this all you have to do is write:
        ``
        sudo nano /etc/libvirt/hooks/kvm.conf
        ``
