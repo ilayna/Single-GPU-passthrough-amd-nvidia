@@ -13,7 +13,7 @@ Step 2:
       cd ~/Downloads
       git clone https://github.com/wabulu/Single-GPU-passthrough-amd-nvidia.git
       cd Single-GPU-passthrough-amd-nvidia/{Nvidia/AMD depends on which graphics card you have}
-      sudo cp hooks/ /etc/libvirt
+      sudo cp -r hooks/ /etc/libvirt
 
 Step 3:
        Now that the hooks folder is in the right place you are going to change the kvm.conf file to match your setup.
