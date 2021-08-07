@@ -18,10 +18,14 @@ Step 2:
 Step 3:
        Now that the hooks folder is in the right place you are going to change the kvm.conf file to match your setup.
        to do this you first need to write:
-       lspci -nnk
+       
+       sudo lspci -nnk
+       
        it should spit out something similar to this:
        you need to look for your gpu and audio pci number and change it accordingly in the kvm.conf file, for this all you have to do is write:
+       
        sudo nano /etc/libvirt/hooks/kvm.conf
+       
        (reminder: you start writing the numbers after pci_0000_{your numbers} and all dots should be replaced with _)
 Step 4: If you did everything right you can try running the vm (make sure it's named win10 otherwise make sure the folder win10 in /etc/libvirt/hooks/qemu.d is named accordingly) nvidia users might also want to go to the url mentions at step 1 and follow the rest.
 
