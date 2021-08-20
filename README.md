@@ -28,8 +28,11 @@ Step 3:
        sudo nano /etc/libvirt/hooks/kvm.conf
        ``
       (reminder: you start writing the numbers after pci_0000_{your numbers} and all dots should be replaced with _)
+      Now all you need to do is `` Sudo sytemctl restart libvirtd
+      ``
       
 Step 4: If you did everything right you can try running the vm (make sure it's named win10 otherwise make sure the folder win10 in /etc/libvirt/hooks/qemu.d is named accordingly) nvidia users might also want to go to the url mentions at step 1 and follow the rest.
+
 
 if you have any problems you can mention me in your reddit post at r/VFIO with u/wabulu.
 
