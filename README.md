@@ -1,3 +1,5 @@
+[<img src="https://www.logo.wine/a/logo/Discord_(software)/Discord_(software)-Logo-Color-Logo.wine.svg" width="60"/>](https://discord.gg/ZpXvd2RJVz)
+
 # Single-GPU-passthrough-amd-nvidia
 My way of doing single gpu passthrough the simplest way, I've gathered many sources together to make the perfect Single GPU passthrough guide the simplest and easiest way.
 
