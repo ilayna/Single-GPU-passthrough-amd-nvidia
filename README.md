@@ -5,11 +5,11 @@ My way of doing single gpu passthrough the simplest way, I've gathered many sour
 
 DISCLAIMER: This guide is pretty similar to many other single gpu guides, I am not trying to copy them and or take their credit, This guide is combining them for the better, this way you can use the scripts on all display-services (there might be some anomalies)
 
-Step 1:
+### Step 1:
     go to this url https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/1)-Preparations
     and follow steps 1-6, you could follow the rest of the guide but I believe my way is a bit more efficient and works more of the time..
 
-Step 2:
+### Step 2:
       clone my repo and and copy the hooks folder to /etc/libvirt/
 
       cd ~/Downloads
@@ -17,7 +17,7 @@ Step 2:
       cd Single-GPU-passthrough-amd-nvidia/{Nvidia/AMD depends on which graphics card you have}
       sudo cp -r hooks/ /etc/libvirt
 
-Step 3:
+### Step 3:
        Now that the hooks folder is in the right place you are going to change the kvm.conf file to match your setup.
        to do this you first need to write:
        ``
@@ -33,10 +33,10 @@ Step 3:
       Now all you need to do is `` Sudo sytemctl restart libvirtd
       ``
       
-Step 4: If you did everything right you can try running the vm (make sure it's named win10 otherwise make sure the folder win10 in /etc/libvirt/hooks/qemu.d is named accordingly) nvidia users might also want to go to the url mentions at step 1 and follow the rest.
+### Step 4: If you did everything right you can try running the vm (make sure it's named win10 otherwise make sure the folder win10 in /etc/libvirt/hooks/qemu.d is named accordingly) nvidia users might also want to go to the url mentions at step 1 and follow the rest.
 
 
-if you have any problems you can mention me in your reddit post at r/VFIO with u/wabulu.
+If you have any problems should join my discord server for faster response (top left) *or* you can mention me in your reddit post at r/VFIO with u/wabulu.
 
 CREDITS:
         https://gitlab.com/risingprismtv        
