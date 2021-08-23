@@ -45,8 +45,8 @@ DISCLAIMER: This guide is pretty similar to many other single gpu guides, I am n
 
 If you have any problems should join my discord server for faster response (top left) *or* ~~you can mention me in your reddit post at r/VFIO with u/wabulu~~.
 
-CREDITS:
-        - https://gitlab.com/risingprismtv        
-        - https://gitlab.com/YuriAlek        
-        - https://passthroughpo.st/
+##### CREDITS: <br /> 
+   - https://gitlab.com/risingprismtv        
+   - https://gitlab.com/YuriAlek        
+   - https://passthroughpo.st/
         
