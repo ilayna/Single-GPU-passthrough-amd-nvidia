@@ -36,7 +36,7 @@ DISCLAIMER: This guide is pretty similar to many other single gpu guides, I am n
    `sudo nano /etc/libvirt/hooks/kvm.conf` 
       
    (reminder: you start writing the numbers after pci_0000_{your numbers} and all dots should be replaced with _) <br />
-   Now all you need to do is: <br /> `sudo sytemctl restart libvirtd`
+   Now all you need to do is: <br /> `sudo systemctl restart libvirtd`
      
       
 ### Step 4: 
