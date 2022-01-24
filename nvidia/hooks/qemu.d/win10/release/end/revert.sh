@@ -24,6 +24,7 @@ echo "efi-framebuffer.0" > /sys/bus/platform/drivers/efi-framebuffer/bind
 
 #Load nvidia driver
 modprobe nvidia_drm
+modprobe nvidia_uvm
 modprobe nvidia_modeset
 modprobe drm_kms_helper
 modprobe nvidia
