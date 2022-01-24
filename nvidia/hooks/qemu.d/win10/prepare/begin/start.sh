@@ -20,6 +20,7 @@ sleep 5
 
 # Unload all Nvidia drivers
 modprobe -r nvidia_drm
+modprobe -r nvidia_uvm
 modprobe -r nvidia_modeset
 modprobe -r drm_kms_helper
 modprobe -r nvidia
