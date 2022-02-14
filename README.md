@@ -38,8 +38,15 @@ DISCLAIMER: This guide is pretty similar to many other single gpu guides, I am n
    (reminder: you start writing the numbers after pci_0000_{your numbers} and all dots should be replaced with _) <br />
    Now all you need to do is: <br /> `sudo systemctl restart libvirtd`
      
-      
 ### Step 4: 
+   
+   ```bash
+   chmod +x /etc/libvirt/hooks/qemu
+   chmod +x /etc/libvirt/hooks/qemu.d/win10/prepare/begin/start.sh
+   chmod +x /etc/libvirt/hooks/qemu.d/win10/release/end/revert.sh
+   ```
+
+### Step 5: 
    If you did everything right you can try running the vm (make sure it's named win10 otherwise make sure the folder win10 in /etc/libvirt/hooks/qemu.d is named            accordingly) nvidia users might also want to go to the url mentions at step 1 and follow the rest. <br />
 
 
