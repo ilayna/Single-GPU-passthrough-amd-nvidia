@@ -8,6 +8,7 @@ def current_distro():
 
 
 DISTRO = current_distro()
+GPU_VENDOR = ''
 
 
 def is_intel():

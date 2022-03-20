@@ -1,6 +1,11 @@
-import os
-
 from utils import *
+
+
+def init():
+    install()
+    configure_cfg()
+    assign_libvirt_to_user()
+    enable_vm_network()
 
 
 def install():
@@ -55,3 +60,7 @@ def assign_libvirt_to_user():
 
 def enable_vm_network():
     os.system('virsh net-autostart default')
+
+
+def restart_libvirt():
+    os.system('systemctl restart libvirtd')

@@ -1,5 +1,7 @@
 from utils import *
 
+DEVICES_IDS = None
+
 
 def init():
     """
@@ -8,7 +10,7 @@ def init():
     """
     gpu_id = prompt_user_to_choose_gpu()
     gpu_base_id = gpu_id[:6]
-    print(get_linked_devices_ids(gpu_base_id))
+    DEVICES_IDS = get_linked_devices_ids(gpu_base_id)
 
 
 def prompt_user_to_choose_gpu():
@@ -33,6 +35,19 @@ def prompt_user_to_choose_gpu():
             gpu = int(gpu)
             stop = True
     line = msg_lines[gpu - 1]
+    if 'AMD' in line:
+        GPU_VENDOR = 'AMD'
+    elif 'NVIDIA' in line:
+        GPU_VENDOR = 'NVIDIA'
+    else:
+        # TODO (wabulu) Check if input is valid
+        GPU_VENDOR = input(
+            "Couldn't detect gpu vendor, please enter manually:\nAMD if you are using amd gpu\nNVIDIA if you are using nvidia gpu\n")
+        while GPU_VENDOR not in ("NVIDIA", "AMD"):
+            print("Invalid input !\nPlease enter NVIDIA or AMD only !\n\n")
+            GPU_VENDOR = input(
+                "Couldn't detect gpu vendor, please enter manually:\nAMD if you are using amd gpu\nNVIDIA if you are using nvidia gpu\n")
+
     # return line[line.rfind('['):line.rfind(']') + 1]
     return line[:8]
 
@@ -62,4 +77,11 @@ def get_linked_devices_ids(base_id: str):
             # device_id = line[line.rfind('[') + 1:line.rfind(']')]
             device_id = line[:7]
             ids_of_all_passthrough_devices.append(device_id)
+    format_related_devices_addresses(ids_of_all_passthrough_devices)
     return ids_of_all_passthrough_devices
+
+
+def format_related_devices_addresses(addresses):
+    for i in range(len(addresses)):
+        addresses[i].replace(':', '.')
+        addresses[i].replace('.', '_')
