@@ -1,6 +1,7 @@
-from utils import *
+import hooks
+import utils
 
-DEVICES_IDS = None
+GPU_VENDOR = None
 
 
 def init():
@@ -10,10 +11,11 @@ def init():
     """
     gpu_id = prompt_user_to_choose_gpu()
     gpu_base_id = gpu_id[:6]
-    DEVICES_IDS = get_linked_devices_ids(gpu_base_id)
+    hooks.DEVICES_IDS = get_linked_devices_ids(gpu_base_id)
 
 
 def prompt_user_to_choose_gpu():
+    global GPU_VENDOR
     """
     Prompts the user to choose a gpu
     :return: The id of the chosen gpu
@@ -57,7 +59,7 @@ def prompt_message():
     """
     Returns a list of all `valid` gpus
     """
-    msg = get_available_gpus()
+    msg = utils.get_available_gpus()
     msg_lines = msg.split('\n')
     ret_msg = []
     for line in msg_lines:
@@ -71,7 +73,7 @@ def get_linked_devices_ids(base_id: str):
     Returns the ids of all devices of the same gpu (audio, vga)
     """
     ids_of_all_passthrough_devices = []
-    lines = get_available_gpus().split('\n')
+    lines = utils.get_available_gpus().split('\n')
     for line in lines:
         if base_id == line[:6]:  # the address should be at the start
             # device_id = line[line.rfind('[') + 1:line.rfind(']')]
@@ -85,3 +87,8 @@ def format_related_devices_addresses(addresses):
     for i in range(len(addresses)):
         addresses[i].replace(':', '.')
         addresses[i].replace('.', '_')
+
+
+def gpu_vendor():
+    global GPU_VENDOR
+    return GPU_VENDOR

@@ -1,6 +1,8 @@
 from libvirt import restart_libvirt
 from utils import *
-from virt import DEVICES_IDS
+from virt import gpu_vendor
+
+DEVICES_IDS = None
 
 
 def init():
@@ -14,7 +16,7 @@ def init():
 
 
 def move_hooks_folder():
-    os.system(fr"cp -r ../{GPU_VENDOR.lower()}/hooks/ /etc/libvirt")
+    os.system(fr"cp -r ../{gpu_vendor().lower()}/hooks/ /etc/libvirt")
 
 
 def edit_hooks(devices_addresses: list):
