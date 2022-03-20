@@ -27,8 +27,10 @@
  ``cd Single-GPU-passthrough-amd-nvidia/ ``<br/>
  and then executing the script with ``sudo sh ./start.sh`` <br/>
 
-
 ### Step 4:
+Now you just need to setup virt-manager as for now the scripts doesn't do it automatically, <br/>
+you can do that by visiting this [link](https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/5)-Configuring-Virtual-Machine-Manager)
+### Step 5:
 
 If you did everything right you can try running the vm (make sure it's named win10 otherwise make sure the folder win10
 in /etc/libvirt/hooks/qemu.d is named accordingly) <br/>
