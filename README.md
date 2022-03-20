@@ -29,12 +29,13 @@
 
 ### Step 4:
 Now you just need to setup virt-manager as for now the scripts doesn't do it automatically, <br/>
-you can do that by visiting this [link](shorturl.at/hrzQX)
+you can do that by visiting this <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/5)-Configuring-Virtual-Machine-Manager">link</a>
+
 ### Step 5:
 
 If you did everything right you can try running the vm (make sure it's named win10 otherwise make sure the folder win10
 in /etc/libvirt/hooks/qemu.d is named accordingly) <br/>
-nvidia users might also want to go to this [url](shorturl.at/zADU7) .<br/>
+nvidia users might also want to go to this <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/6)-Preparation-and-placing-of-ROM-file">link</a>.<br/>
 If you have any problems you can join my discord server for faster response (top left) *or* you can mention me in your
 reddit post at r/VFIO with u/wabulu.
 
