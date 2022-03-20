@@ -5,6 +5,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+pip install distro
 python3 $(pwd)/scripts/main.py
 
 
