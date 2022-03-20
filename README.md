@@ -34,9 +34,7 @@ you can do that by visiting this [link](https://gitlab.com/risingprismtv/single-
 
 If you did everything right you can try running the vm (make sure it's named win10 otherwise make sure the folder win10
 in /etc/libvirt/hooks/qemu.d is named accordingly) <br/>
-nvidia users might also want to go to this [url](https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/6)-Preparation-and-placing-of-ROM-file) mentions at step 1 and
-follow the rest. <br />
-
+nvidia users might also want to go to this [url](https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/6)-Preparation-and-placing-of-ROM-file) .<br/>
 If you have any problems you can join my discord server for faster response (top left) *or* you can mention me in your
 reddit post at r/VFIO with u/wabulu.
 

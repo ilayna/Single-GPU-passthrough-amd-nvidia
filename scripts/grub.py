@@ -33,7 +33,7 @@ def edit_grub():
 
 
 def update_grub():
-    if DISTRO == 'arch':
+    if DISTRO in ('arch', 'endeavouros'):
         os.system("grub-mkconfig -o /boot/grub/grub.cfg")
     elif DISTRO in (
             'manjaro', 'ubuntu', 'linuxmint', 'debian', 'void'):  # not sure about the debain one, it wasn't specified

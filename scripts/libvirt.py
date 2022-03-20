@@ -9,7 +9,7 @@ def init():
 
 
 def install():
-    if DISTRO == 'manjaro' or DISTRO == 'arch':
+    if DISTRO in ('manjaro', 'arch', 'endeavouros'):
         os.system("pacman -S virt-manager qemu vde2 ebtables iptables-nft nftables dnsmasq bridge-utils ovmf -y")
     elif DISTRO == 'ubuntu' or DISTRO == 'linuxmint' or DISTRO == 'pop' or DISTRO == 'debian':
         os.system("apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager ovmf -y")
@@ -20,7 +20,8 @@ def install():
         os.system('xbps-install -Sy qemu libvirt bridge-utils virt-manager -y')
     else:
         print('Package manager not database, please install virt-manager etc manually and report your issue at '
-              'https://github.com/wabulu/Single-GPU-passthrough-amd-nvidia')
+              f'https://github.com/wabulu/Single-GPU-passthrough-amd-nvidia\nYour distro-id is {DISTRO},please add it to your report !\n')
+        exit(1)
 
 
 def configure_cfg():
