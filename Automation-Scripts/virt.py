@@ -7,8 +7,7 @@ def init():
     It sets everything regarding virt up
     """
     gpu_id = prompt_user_to_choose_gpu()
-    gpu_base_id = gpu_id[1:gpu_id.find(':')]
-    print(gpu_base_id)
+    gpu_base_id = gpu_id[:6]
     print(get_linked_devices_ids(gpu_base_id))
 
 
@@ -34,7 +33,8 @@ def prompt_user_to_choose_gpu():
             gpu = int(gpu)
             stop = True
     line = msg_lines[gpu - 1]
-    return line[line.rfind('['):line.rfind(']') + 1]
+    # return line[line.rfind('['):line.rfind(']') + 1]
+    return line[:8]
 
 
 def prompt_message():
@@ -58,7 +58,8 @@ def get_linked_devices_ids(base_id: str):
     ids_of_all_passthrough_devices = []
     lines = get_available_gpus().split('\n')
     for line in lines:
-        if base_id in line:
-            device_id = line[line.rfind('[') + 1:line.rfind(']')]
+        if base_id == line[:6]:  # the address should be at the start
+            # device_id = line[line.rfind('[') + 1:line.rfind(']')]
+            device_id = line[:7]
             ids_of_all_passthrough_devices.append(device_id)
     return ids_of_all_passthrough_devices

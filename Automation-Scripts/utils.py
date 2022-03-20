@@ -60,12 +60,6 @@ def get_available_gpus():
     returns a formatted text with the available gpus for passthrough
     """
     com = r"""
-#!/bin/bash
-for g in $(find /sys/kernel/iommu_groups/* -maxdepth 0 -type d | sort -V); do
-    echo "IOMMU Group ${g##*/}:"
-    for d in $g/devices/*; do
-        echo -e "\t$(lspci -nns ${d##*/})"
-    done;
-done;
+lspci -nnk
 """
     return os.popen(com).read()
