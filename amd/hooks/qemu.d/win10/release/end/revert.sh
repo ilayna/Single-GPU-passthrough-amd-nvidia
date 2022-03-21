@@ -9,11 +9,6 @@ modprobe -r vfio_pci
 modprobe -r vfio_iommu_type1
 modprobe -r vfio
 
-# Re-Bind GPU to AMD Driver
-virsh nodedev-reattach $VIRSH_GPU_VIDEO
-virsh nodedev-reattach $VIRSH_GPU_AUDIO
-
-
 # Rebind VT consoles
 echo 1 > /sys/class/vtconsole/vtcon0/bind
 echo 0 > /sys/class/vtconsole/vtcon1/bind

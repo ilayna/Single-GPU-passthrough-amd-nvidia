@@ -27,10 +27,6 @@ modprobe -r nvidia
 modprobe -r i2c_nvidia_gpu
 modprobe -r drm
 
-# Unbind the GPU from display driver
-virsh nodedev-detach $VIRSH_GPU_VIDEO
-virsh nodedev-detach $VIRSH_GPU_AUDIO
-
 # Load VFIO kernel module
 modprobe vfio
 modprobe vfio_pci

@@ -21,10 +21,6 @@ sleep 5
 # Unload all AMD drivers
 modprobe -r amdgpu
 
-# Unbind the GPU from display driver
-virsh nodedev-detach $VIRSH_GPU_VIDEO
-virsh nodedev-detach $VIRSH_GPU_AUDIO
-
 # Load VFIO kernel module
 modprobe vfio
 modprobe vfio_pci
