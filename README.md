@@ -4,7 +4,7 @@
 
 # Single-GPU-passthrough-amd-nvidia
 
-# BETA BRANCH
+# DON'T USE THIS BRANCH ITS NOT DONE YET !
 
 ## if you are having troubles please see the 'manual' branch
 
