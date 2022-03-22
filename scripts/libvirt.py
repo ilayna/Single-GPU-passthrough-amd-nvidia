@@ -1,6 +1,7 @@
 from utils import *
 import errors
 
+
 def init():
     install()
     configure_cfg()

@@ -2,7 +2,7 @@ from grub import init as grub_init
 from hooks import init as hooks_init
 from libvirt import init as lib_init
 from virt import init as virt_init
-
+import virt
 HOME_DIR = '$HOME'
 if __name__ == '__main__':
     grub_init()
@@ -15,3 +15,4 @@ if __name__ == '__main__':
     virt_init()
     hooks_init()
     print('Done !\nYou just need to configure virt-manager now !')
+    virt.prompt_user_to_choose_guest_os()

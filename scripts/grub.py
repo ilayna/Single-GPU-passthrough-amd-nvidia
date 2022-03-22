@@ -41,4 +41,4 @@ def update_grub():
     try:
         os.system(GRUB_UPDATE_CMND[DISTRO])
     except Exception as ex:
-        Error.report_error_msg(ex, 102)
+        errors.Error.report_error_msg(ex, 102)

@@ -1,7 +1,11 @@
 import hooks
 import utils
-
+import errors
 GPU_VENDOR = None
+ISO_DOWNLOADS = {
+    'Windows 10 21H2 English x64': r'https://www.itechtics.com/?dl_id=151',
+    'arch': 'test'  # TODO remove this line
+}
 
 
 def init():
@@ -92,3 +96,31 @@ def format_related_devices_addresses(addresses):
 def gpu_vendor():
     global GPU_VENDOR
     return GPU_VENDOR
+
+
+def print_os_options():
+    i = 1
+    for key in ISO_DOWNLOADS.keys():
+        print(f'{i}. {key}')
+        i += 1
+
+
+def prompt_user_to_choose_guest_os():
+    """
+    Asks the user which os he wants to use from OS_DOWNLOADS
+    :rtype: str
+    :return: download link of the chosen os
+    """
+    try:
+        print('Please choose an os for the virtual machine: ')
+        print_os_options()
+        chosen_os = input()
+        m_len = len(ISO_DOWNLOADS.items())
+        while not ('1' <= chosen_os <= f'{m_len}'):
+            chosen_os = input(f'Invalid input ! Please enter a number between 1 and {m_len} !')
+        return list(ISO_DOWNLOADS.values())[int(chosen_os)-1]
+    except Exception as ex:
+        errors.Error.report_error_msg(ex, err_code=104)
+    return None
+
+

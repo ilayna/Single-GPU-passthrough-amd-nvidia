@@ -12,6 +12,8 @@ class Error:
     ERROR CODES:
     101- Means couldn't open grub file (File Doesn't Exist)
     102- Distro isn't found in utils.GRUB_UPDATE_CMND so it can't execute the update grub command
+    103-
+    104- Something went wrong in virt.prompt_user_to_choose_guest_os
     """
 
     @classmethod
