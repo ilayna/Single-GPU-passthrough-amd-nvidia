@@ -1,5 +1,5 @@
 from utils import *
-
+import errors
 
 def init():
     install()
@@ -12,7 +12,7 @@ def install():
     try:
         os.system(LIBVIRT_INSTALL[DISTRO])
     except Exception as ex:
-        Error.report_error_msg(ex, err_code=103)
+        errors.Error.report_error_msg(ex, err_code=103)
 
 
 def configure_cfg():
