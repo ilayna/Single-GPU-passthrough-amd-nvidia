@@ -1,6 +1,36 @@
 import os
-
 import distro
+import errors
+
+"""
+this dictionary contains the default grub location for each distro,
+to add support for a distro all you need to do is add it to this dictionary 
+"""
+GRUB_UPDATE_CMND = {
+    'arch': 'grub-mkconfig -o /boot/grub/grub.cfg',
+    'endeavouros': 'grub-mkconfig -o /boot/grub/grub.cfg',
+    'manjaro': 'update-grub',
+    'ubuntu': 'update-grub',
+    'linuxmint': 'update-grub',
+    'void': 'update-grub',
+    'fedora': 'grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg',
+    'pop': 'bootctl update',
+    'opensuse': 'grub2-mkconfig -o /boot/grub2/grub.cfg'
+}
+
+LIBVIRT_INSTALL = {
+    'arch': 'pacman -S virt-manager qemu vde2 ebtables iptables-nft nftables dnsmasq bridge-utils ovmf -y',
+    'endeavouros': 'pacman -S virt-manager qemu vde2 ebtables iptables-nft nftables dnsmasq bridge-utils ovmf -y',
+    'manjaro': 'pacman -S virt-manager qemu vde2 ebtables iptables-nft nftables dnsmasq bridge-utils ovmf -y',
+    'ubuntu': 'apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager ovmf -y',
+    'linuxmint': 'apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager ovmf -y',
+    'void': 'xbps-install -Sy qemu libvirt bridge-utils virt-manager -y',
+    'fedora': 'grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg',
+    'pop': 'apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager ovmf -y',
+    'opensuse': 'zypper in libvirt libvirt-client libvirt-daemon virt-manager virt-install virt-viewer qemu qemu-kvm qemu-ovmf-x86_64 qemu-tools -y'
+}
+
+REPO_LINK = r"https://github.com/wabulu/Single-GPU-passthrough-amd-nvidia/"
 
 
 def current_distro():
@@ -40,14 +70,19 @@ def grub_file_location():
 
 
 def get_line_where_text(str_to_look_for: str, file: str):
-    with open(file, 'r') as f:
-        text = f.readlines()
-        if DISTRO != 'pop':
+    """
+    Returns the index of :param str in :param file
+    :param file: the file to search for str
+    :return: Returns the index of :param str in :param file, if :param str_to_look_for not in file, returns None
+    """
+    try:
+        with open(file, 'r') as f:
+            text = f.readlines()
             for i in range(len(text)):
                 if str_to_look_for in text[i]:
                     return i
-        else:
-            return len(text) - 1  # last line
+    except FileNotFoundError as e:
+        errors.Error.report_error_msg(e)
     return None
 
 

@@ -11,7 +11,12 @@ def init():
 
 
 def edit_grub():
-    line = get_line_where_text("GRUB_CMDLINE_LINUX_DEFAULT", GRUB_FILE)
+    line = None
+    if DISTRO != 'pop':
+        line = get_line_where_text("GRUB_CMDLINE_LINUX_DEFAULT", GRUB_FILE)
+    else:
+        with open(GRUB_FILE, 'r', ) as f:
+            line = f.readlines()[-1]  # on pop, it's the last line unlike any other distro so far
     text_to_add = ''
     txt = ''
     if AMD:
@@ -33,17 +38,7 @@ def edit_grub():
 
 
 def update_grub():
-    if DISTRO in ('arch', 'endeavouros'):
-        os.system("grub-mkconfig -o /boot/grub/grub.cfg")
-    elif DISTRO in (
-            'manjaro', 'ubuntu', 'linuxmint', 'debian', 'void'):  # not sure about the debain one, it wasn't specified
-        os.system("update-grub")
-    elif DISTRO == 'fedora':
-        os.system("grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg")
-    elif DISTRO == 'pop':
-        os.system("bootctl update")
-    elif DISTRO == 'opensuse':
-        os.system("grub2-mkconfig -o /boot/grub2/grub.cfg")
-    else:
-        print("Distro not in database, please update grub manually and report this issue at "
-              "https://github.com/wabulu/Single-GPU-passthrough-amd-nvidia")
+    try:
+        os.system(GRUB_UPDATE_CMND[DISTRO])
+    except Exception as ex:
+        Error.report_error_msg(ex, 102)

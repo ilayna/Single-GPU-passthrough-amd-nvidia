@@ -1,10 +1,7 @@
-import os
-from os.path import exists
 from grub import init as grub_init
 from hooks import init as hooks_init
 from libvirt import init as lib_init
 from virt import init as virt_init
-from os import getenv
 
 HOME_DIR = '$HOME'
 if __name__ == '__main__':
