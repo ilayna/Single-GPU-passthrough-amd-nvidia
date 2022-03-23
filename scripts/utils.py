@@ -25,7 +25,7 @@ LIBVIRT_INSTALL = {
     'ubuntu': 'apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager ovmf -y',
     'linuxmint': 'apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager ovmf -y',
     'void': 'xbps-install -Sy qemu libvirt bridge-utils virt-manager -y',
-    'fedora': 'grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg',
+    'fedora': 'dnf install @virtualization',
     'pop': 'apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager ovmf -y',
     'opensuse': 'zypper in libvirt libvirt-client libvirt-daemon virt-manager virt-install virt-viewer qemu qemu-kvm qemu-ovmf-x86_64 qemu-tools -y'
 }
