@@ -27,7 +27,7 @@ def edit_grub():
     with open(GRUB_FILE, 'r') as f:
         txt = f.readlines()
         # if you run the script twice or have already done this part we shouldn't do it again
-        if text_to_add in txt:
+        if text_to_add in txt[line]:
             return
         index_first_space = txt[line].find(' ')
         txt[line] = txt[line][:index_first_space] + ' ' + text_to_add + ' ' + txt[line][index_first_space + 1:]
