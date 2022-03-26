@@ -18,7 +18,6 @@ virsh nodedev-reattach $VIRSH_GPU_AUDIO
 echo 1 > /sys/class/vtconsole/vtcon0/bind
 echo 0 > /sys/class/vtconsole/vtcon1/bind
 
-nvidia-xconfig --query-gpu-info > /dev/null 2>&1
 # Re-Bind EFI-Framebuffer
 echo "efi-framebuffer.0" > /sys/bus/platform/drivers/efi-framebuffer/bind
 
