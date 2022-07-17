@@ -22,12 +22,21 @@ def move_hooks_folder():
     os.system(fr"cp -r ./{gpu_vendor().lower()}/hooks/ /etc/libvirt")
 
 
+def fix_device_addresses(addresses: list):
+    new_lst = []
+    for i in addresses:
+        new_lst.append(i.replace(':', '.').replace('.', '_'))
+    return new_lst
+
+
 def edit_hooks(devices_addresses: list):
     # TODO (wabulu) Make so if you have more then just the audio and video addresses it adds them too
 
     # Example :
     # VIRSH_GPU_VIDEO=pci_0000_01_00_0
     # VIRSH_GPU_AUDIO=pci_0000_01_00_1
+    
+    devices_addresses = fix_device_addresses(devices_addresses)
     txt = ''
     with open(r'/etc/libvirt/hooks/kvm.conf', 'r') as f:
         txt = f.read()

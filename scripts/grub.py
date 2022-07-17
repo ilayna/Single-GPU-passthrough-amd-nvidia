@@ -20,7 +20,7 @@ def edit_grub():
         line = get_line_where_text("GRUB_CMDLINE_LINUX_DEFAULT", GRUB_FILE)
     else:
         with open(GRUB_FILE, 'r', ) as f:
-            line = f.readlines()[-1]  # on pop, it's the last line unlike any other distro so far
+            line = len(f.readlines())-1  # on pop, it's the last line unlike any other distro so far
     text_to_add = ''
     txt = ''
     if AMD:
