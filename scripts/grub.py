@@ -1,4 +1,8 @@
+# AUTHOR: Ilay Nahman
+# GITHUB: wabulu
+# EMAIL : wabulubusiness@gmail.com
 from utils import *
+from errors import Error
 
 INTEL = is_intel()
 AMD = is_amd()

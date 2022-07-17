@@ -1,3 +1,6 @@
+# AUTHOR: Ilay Nahman
+# GITHUB: wabulu
+# EMAIL : wabulubusiness@gmail.com
 from utils import *
 import errors
 

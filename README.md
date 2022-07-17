@@ -4,9 +4,7 @@
 
 # Single-GPU-passthrough-amd-nvidia
 
-# BETA BRANCH
-
-## if you are having troubles please see the 'manual' branch
+## if you are having troubles please see the '[manual](https://github.com/wabulu/Single-GPU-passthrough-amd-nvidia/tree/3d8666e66d009493a3f5b574bdba15954ed86af5)' branch
 
 ### My single gpu passthrough guide, it is fully automatic, and it is as simple as it gets
 
@@ -59,14 +57,11 @@ You can support me and show me that you appreciate my work in many ways !<br/>
 My preferred ways are (by-order):
 
 - improve the guide through commits
-- follow me on socials like my [twitch](https://twitch.tv/wabulu)
-  , [youtube](https://www.youtube.com/channel/UCZE6LPN-R-2VTshryGHPEeg), [GitHub](https://github.com/wabulu)
-  and [twitter](https://twitter.com/wwabulu)
 - if you really really appreciate my work and want more of it you can support me financially through
-  my [patreon](https://www.patreon.com/wabulu) or [buy me a coffee](https://www.buymeacoffee.com/wabulu) and even a
-  prime sub on my [twitch](https://twitch.tv/wabulu) !
+  my [patreon](https://www.patreon.com/wabulu) or [buy me a coffee](https://www.buymeacoffee.com/wabulu)
+  Thanks !
 
-### CREDITS: <br />
+### CREDITS: <br/>
 
 Check out these amazing people who made this guide possible !
 

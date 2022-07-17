@@ -1,3 +1,6 @@
+# AUTHOR: Ilay Nahman
+# GITHUB: wabulu
+# EMAIL : wabulubusiness@gmail.com
 from grub import init as grub_init
 from hooks import init as hooks_init
 from libvirt import init as lib_init

@@ -1,3 +1,6 @@
+# AUTHOR: Ilay Nahman
+# GITHUB: wabulu
+# EMAIL : wabulubusiness@gmail.com
 from libvirt import restart_libvirt
 from utils import *
 from virt import gpu_vendor
