@@ -51,18 +51,6 @@ reddit post at r/VFIO with u/wabulu.
 
 - You can search the files for #TODOs and do them, it would help me alot !
 
-### Support
-
-You can support me and show me that you appreciate my work in many ways !<br/>
-My preferred ways are (by-order):
-
-- improve the guide through commits
-- if you really really appreciate my work and want more of it you can support me financially through
-  my [patreon](https://www.patreon.com/wabulu) or [buy me a coffee](https://www.buymeacoffee.com/wabulu)
-  Thanks !
-
-### CREDITS: <br/>
-
 Check out these amazing people who made this guide possible !
 
 - https://gitlab.com/risingprismtv
