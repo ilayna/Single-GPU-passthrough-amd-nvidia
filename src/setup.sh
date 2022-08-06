@@ -58,7 +58,7 @@ install_virtualization(){
     )
     local KEY
     KEY=$(get_distro_id)
-    echo "${INSTALL_CMD["$KEY"]}"
+    eval "${INSTALL_CMD["$KEY"]}"
 }
 
 echo "DISTRO ID IS $DISTRO_ID"
@@ -74,7 +74,7 @@ enable_libvirt_for_user(){
     if [[ " ${DEBIAN_BASED_DISTROS[*]} " =~ " $DISTRO_ID " ]]; then
         $(usermod -a -G kvm,libvirt $CURR_USER)
     fi
-    $(virsh net-autostart default) # enable network on start-up
+    eval 'virsh net-autostart default' # enable network on start-up
 }
 
 
@@ -100,8 +100,27 @@ edit_libvirtd(){
     fi
 }
 finalize(){
+    declare -A UPDATE_BOOTLOADER_CMD
+    UPDATE_BOOTLOADER_CMD=( 
+    [arch]='grub-mkconfig -o /boot/grub/grub.cfg' 
+    [endeavouros]='grub-mkconfig -o /boot/grub/grub.cfg' 
+    [manjaro]='update-grub'
+    [ubuntu]='update-grub'
+    [debian]='update-grub'
+    [linuxmint]='update-grub'
+    [void]='update-grub'
+    [fedora]='grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg'
+    [pop]='bootctl update'
+    [opensuse]='grub2-mkconfig -o /boot/grub2/grub.cfg'
+    )
+    local KEY
+    KEY=$(get_distro_id)
+    eval "${UPDATE_BOOTLOADER_CMD["$KEY"]}"
     $(systemctl restart libvirtd)
 }
+
+edit_kernel_boot_parameters
+install_virtualization
 edit_libvirtd
 enable_libvirt_for_user
 finalize

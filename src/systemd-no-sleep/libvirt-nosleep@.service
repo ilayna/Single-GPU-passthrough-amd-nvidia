@@ -1,0 +1,6 @@
+[Unit]
+Description=Preventing sleep while libvirt domain "%i" is running
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/systemd-inhibit --what=sleep --why="Libvirt domain \"%i\" is running" --who=%U --mode=block sleep infinity
