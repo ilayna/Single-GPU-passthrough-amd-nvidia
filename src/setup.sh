@@ -124,3 +124,7 @@ install_virtualization
 edit_libvirtd
 enable_libvirt_for_user
 finalize
+
+eval "sh ./install_hooks.sh"
+
+echo "Done ! Please restart now and continue to configure your VM."

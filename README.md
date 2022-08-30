@@ -19,28 +19,23 @@
   ```cd ~/Downloads ```<br />
   ```git clone https://github.com/wabulu/Single-GPU-passthrough-amd-nvidia.git```<br />
 
+
 ### Step 2:
-
-- Install pip using your default package manager, for most people it'll be either ``apt-get install python3-pip``
-  or ``pacman -S python3-pip`` <br/>
-
-### Step 3:
 
 - Run the script which would do (almost) everything for you by changing your directory to the folder with <br/>
   ``cd Single-GPU-passthrough-amd-nvidia/ ``<br/>
-  and then executing the script with ``sudo sh ./start.sh`` <br/>
+  and then executing the script with ``sudo sh src/start.sh`` <br/>
 
-### Step 4:
+### Step 3:
 
 Now you just need to setup virt-manager as for now the scripts doesn't do it automatically, <br/>
 you can do that by visiting
 this <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/5)-Configuring-Virtual-Machine-Manager">
 link</a>
 
-### Step 5:
+### Step 4:
 
-If you did everything right you can try running the vm (make sure it's named win10 otherwise make sure the folder win10
-in /etc/libvirt/hooks/qemu.d is named accordingly) <br/>
+If you did everything right you can try running the vm (make sure it's named win10 otherwise make sure to replace `win10` in /etc/libvirt/hooks/qemu line 8 to the name) <br/>
 nvidia users might also want to go to
 this <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/6)-Preparation-and-placing-of-ROM-file">
 link</a>.<br/>
