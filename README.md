@@ -24,7 +24,7 @@
 
 - Run the script which would do (almost) everything for you by changing your directory to the folder with <br/>
   ``cd Single-GPU-passthrough-amd-nvidia/ ``<br/>
-  and then executing the script with ``sudo sh src/start.sh`` <br/>
+  and then executing the script with ``sudo sh src/setup.sh`` <br/>
 
 ### Step 3:
 
@@ -41,6 +41,10 @@ this <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/6)
 link</a>.<br/>
 If you have any problems you can join my discord server for faster response (top left) *or* you can mention me in your
 reddit post at r/VFIO with u/wabulu.
+
+### Uninstalling
+- To uninstall run ``sudo sh src/uninstall.sh`` <br>
+keep in mind that it will delete all previously installed virtualization packages on the system and delete the hooks.
 
 ### Contributing
 
