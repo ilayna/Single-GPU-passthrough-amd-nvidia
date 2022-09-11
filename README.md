@@ -24,7 +24,7 @@
 
 - Run the script which would do (almost) everything for you by changing your directory to the folder with <br/>
   ``cd Single-GPU-passthrough-amd-nvidia/ ``<br/>
-  and then executing the script with ``sudo bash ./src/setup.sh`` <br/>
+  and then executing the script with ``sudo bash ./src/setup.sh`` and after that executing ``sudo bash ./src/install_hooks.sh`` <br/>
 
 ### Step 3:
 
