@@ -30,13 +30,13 @@ remove_virtualization(){
 }
 
 remove_hooks(){
-	eval "rm /etc/libvirt/hooks/qemu"
+	eval "rm -r /etc/libvirt/hooks"
 	eval "rm -r /bin/vfio-startup.sh"
 	eval "rm -r /bin/vfio-teardown.sh"
 }
 
 
-echo "About to remove /etc/lbivirt/hooks/qemu, /bin/vfio-startup.sh,  /bin/vfio-teardown.sh and delete virtualization packages !"
+echo "About to remove /etc/lbivirt/hooks, /bin/vfio-startup.sh,  /bin/vfio-teardown.sh and delete virtualization packages !"
 while true; do
     read -p "Do you wish to uninstall anyway? y/n " yn
     case $yn in

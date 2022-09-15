@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# taken from https://gitlab.com/risingprismtv/single-gpu-passthrough
 if test -e /etc/libvirt/ && ! test -e /etc/libvirt/hooks;
 then
     mkdir -p /etc/libvirt/hooks;

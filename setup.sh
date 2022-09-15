@@ -1,5 +1,9 @@
 #! /bin/bash
 
+#COLORS
+C_RED='\033[0;31m'
+C_LGREEN='\033[1;32m'
+C_NC='\033[0m' # No Color
 
 get_distro_id(){
 	local RES
@@ -19,21 +23,21 @@ edit_kernel_boot_parameters(){
     "pop")
         local BOOT_CONFIG_FILE
         BOOT_CONFIG_FILE="/boot/efi/loader/entries/Pop_OS-current.conf"
-        if ! grep -q "intel_iommu" "$BOOT_CONFIG_FILE" && ! grep -q "amd_iommu" "$BOOT_CONFIG_FILE"; then
-            if grep -q intel "/proc/cpuinfo"; then     
-                $(sed -i 's/options root=/&intel_iommu=on iommu=pt /' "$BOOT_CONFIG_FILE")
-            elif grep -q amd "proc/cpuinfo"; then             
-                $(sed -i 's/options root=/&amd_iommu=on iommu=pt /' "$BOOT_CONFIG_FILE")
+        if ! grep -i -q "intel_iommu" "$BOOT_CONFIG_FILE" && ! grep -i -q "amd_iommu" "$BOOT_CONFIG_FILE"; then
+            if grep -i -q 'intel' "/proc/cpuinfo"; then     
+                $(sed -i 's/quiet /&intel_iommu=on iommu=pt /' "$BOOT_CONFIG_FILE")
+            elif grep -i -q 'amd' "/proc/cpuinfo"; then             
+                $(sed -i 's/quiet /&amd_iommu=on iommu=pt /' "$BOOT_CONFIG_FILE")
             fi
         fi
     ;;
     *)
         local BOOT_CONFIG_FILE
         BOOT_CONFIG_FILE="/etc/default/grub"
-        if ! grep -q "intel_iommu" "$BOOT_CONFIG_FILE" && ! grep -q "amd_iommu" "$BOOT_CONFIG_FILE"; then
-            if grep -q intel "/proc/cpuinfo"; then     
+        if ! grep -i -q "intel_iommu" "$BOOT_CONFIG_FILE" && ! grep -i -q "amd_iommu" "$BOOT_CONFIG_FILE"; then
+            if grep -i -q 'intel' "/proc/cpuinfo"; then     
                 $(sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="/&intel_iommu=on iommu=pt /' "$BOOT_CONFIG_FILE")
-            elif grep -q amd "proc/cpuinfo"; then             
+            elif grep -i -q 'amd' "/proc/cpuinfo"; then             
                 $(sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="/&amd_iommu=on iommu=pt /' "$BOOT_CONFIG_FILE")
             fi
         fi
@@ -60,8 +64,9 @@ install_virtualization(){
     KEY=$(get_distro_id)
     eval "${INSTALL_CMD["$KEY"]}"
 }
-
+echo -e "$C_LGREEN"
 echo "DISTRO ID IS $DISTRO_ID"
+echo -e "$C_NC"
 
 enable_libvirt_for_user(){
     local CURR_USER
@@ -124,5 +129,15 @@ install_virtualization
 edit_libvirtd
 enable_libvirt_for_user
 finalize
+echo -e "$C_LGREEN"
 
+##
+# for now it's better for the user to do this manually after he configures the vm without the gpu passthrough, to cause less confusion
+##
+# echo "Done installing"
+# echo "Started placing hooks"
+# echo -e "$C_NC"
+# $(bash ./install_hooks.sh) 
+# echo -e "$C_LGREEN"
 echo "Done ! Please restart now and continue to configure your VM."
+echo -e "$C_NC"
