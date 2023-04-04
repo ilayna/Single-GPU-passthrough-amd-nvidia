@@ -50,7 +50,7 @@ keep in mind that it will delete all previously installed virtualization package
 ### Contributing
 
 - You can search the files for #TODOs and do them, it would help me a lot !
-- For financial support you can sponsor me [here](https://github.com/sponsors/wabulu)
+- For financial support you can sponsor me [here](https://github.com/sponsors/ilayna)
 
 Check out these amazing people who made this guide possible !
 
